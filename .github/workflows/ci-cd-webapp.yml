@@ -25,3 +25,10 @@ jobs:
       run: dotnet test --configuration $build_config --no-restore
     - name: Publish site 
       run: dotnet publish -c $build_config -o ../../web_publish
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: web site
+        path: web_publish
+    
