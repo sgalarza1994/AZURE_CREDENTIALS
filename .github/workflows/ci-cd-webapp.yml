@@ -43,7 +43,7 @@ jobs:
     - name: Azure web app
       uses: Azure/webapps-deploy@v2
       with:
-       app-name: netcoregithub
+       app-name: appportalsgalarza
        publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
        package: web_site
 
