@@ -32,7 +32,6 @@ jobs:
         name: web_site
         path: web_publish
   deploy:
-    if: 
     needs: build
     runs-on: windows-latest
     steps:
@@ -43,11 +42,12 @@ jobs:
         path: web_site
     - name: Azure Login
       uses: Azure/login@v1
+      with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    -name: Azure web app
-     uses: Azure/webapps-deploy@v2
-     with:
-      app-name: netcoregithub
-      package: web_site
+    - name: Azure web app
+      uses: Azure/webapps-deploy@v2
+      with:
+       app-name: netcoregithub
+       package: web_site
 
   
