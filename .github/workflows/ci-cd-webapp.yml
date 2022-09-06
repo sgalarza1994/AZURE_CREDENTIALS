@@ -40,13 +40,10 @@ jobs:
       with:
         name: web_site
         path: web_site
-    - name: Azure Login
-      uses: Azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Azure web app
       uses: Azure/webapps-deploy@v2
       with:
+       publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
        app-name: netcoregithub
        package: web_site
 
